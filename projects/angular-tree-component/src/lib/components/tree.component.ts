@@ -11,8 +11,9 @@ import { TreeViewportComponent } from './tree-viewport.component';
   styles: [],
   template: `
       <tree-viewport #viewport>
-          <div
+          <ul
                   class="angular-tree-component"
+                  role="tree"
                   [class.node-dragging]="treeDraggedElement.isDragging()"
                   [class.angular-tree-component-rtl]="treeModel.options.rtl">
               <tree-node-collection
@@ -32,7 +33,7 @@ import { TreeViewportComponent } from './tree-viewport.component';
                       [dropIndex]="0"
                       [node]="treeModel.virtualRoot">
               </tree-node-drop-slot>
-          </div>
+          </ul>
       </tree-viewport>
   `
 })

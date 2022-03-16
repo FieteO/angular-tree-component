@@ -60,6 +60,8 @@ tree-viewport {
   position:relative;
   display: inline-block;
   cursor: pointer;
+  list-style: none;
+  padding-left: 0;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
   -khtml-user-select: none;    /* Konqueror */

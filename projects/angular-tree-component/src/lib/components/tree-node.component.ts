@@ -11,8 +11,9 @@ import { TreeNode } from '../models/tree-node.model';
   styles: [],
   template: `
     <ng-container *treeMobxAutorun="{ dontDetach: true }">
-      <div
+      <li
         *ngIf="!templates.treeNodeFullTemplate"
+        role="treeitem"
         [class]="node.getClass()"
         [class.tree-node]="true"
         [class.tree-node-expanded]="node.isExpanded && node.hasChildren"
@@ -20,6 +21,7 @@ import { TreeNode } from '../models/tree-node.model';
         [class.tree-node-leaf]="node.isLeaf"
         [class.tree-node-active]="node.isActive"
         [class.tree-node-focused]="node.isFocused"
+        [attr.aria-expanded]="node.isExpanded && node.hasChildren ? true : false"
       >
         <tree-node-drop-slot
           *ngIf="index === 0"
@@ -41,7 +43,7 @@ import { TreeNode } from '../models/tree-node.model';
           [dropIndex]="node.index + 1"
           [node]="node.parent"
         ></tree-node-drop-slot>
-      </div>
+      </li>
       <ng-container
         [ngTemplateOutlet]="templates.treeNodeFullTemplate"
         [ngTemplateOutletContext]="{
