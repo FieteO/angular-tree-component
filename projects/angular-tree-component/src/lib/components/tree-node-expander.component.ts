@@ -7,15 +7,16 @@ import { TreeNode } from '../models/tree-node.model';
   styles: [],
   template: `
     <ng-container *treeMobxAutorun="{ dontDetach: true }">
-      <span
+      <button
         *ngIf="node.hasChildren"
         [class.toggle-children-wrapper-expanded]="node.isExpanded"
         [class.toggle-children-wrapper-collapsed]="node.isCollapsed"
-        class="toggle-children-wrapper"
+        [attr.aria-label]="node.isCollapsed ? 'expand' : 'collapse'"
+        class="toggle-children-wrapper btn-invisible"
         (click)="node.mouseAction('expanderClick', $event)"
       >
-        <span class="toggle-children"></span>
-      </span>
+        <span class="toggle-children" role="none"></span>
+      </button>
       <span *ngIf="!node.hasChildren" class="toggle-children-placeholder">
       </span>
     </ng-container>

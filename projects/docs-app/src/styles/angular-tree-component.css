@@ -82,3 +82,11 @@ tree-root .angular-tree-component-rtl .tree-children {
 tree-node-checkbox {
   padding: 1px;
 }
+
+.btn-invisible {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
